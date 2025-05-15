@@ -1,4 +1,5 @@
 class Character:
+
    def __init__(self, name):
        self.name = name
        self.health = 100
@@ -7,7 +8,8 @@ class Character:
 
 
    def __str__(self):
-    return f"{self.name}\t\t\tHealth: {self.health}'\t\t\tScore: {self.score}"
+    return f"{self.name}"
+           # f"\t\t\tHealth: {self.health}'\t\t\tScore: {self.score}")
 
 
    def dec_health(self, health):

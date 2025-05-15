@@ -121,5 +121,5 @@ def LivingRoom_room(character):
            all_rooms += 1
 
 
-("Well done {self.name}, You'rished with exploring this odd cabbin\nand you notice something lies out there in the woods..."
+("Well done {self.name}, Your finished with exploring this odd cabbin\nand you notice something lies out there in the woods..."
 "it's calling you're\n name. The sirens await will you dare to engage with them\n What secrets, challenges, or ")

@@ -26,7 +26,7 @@ def print_nav():
 
 def start_game ():
    print(red("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\tWelcome to Dying Path *DEMO GAMEPLAY*\t\t\t\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", 'bold'))
-   print("f{character.name}, wakes up in a mysterious cabin in the middle of the woods. The sun is barely shining "
+   print(f"{ch.Character(username)}, wakes up in a mysterious cabin in the middle of the woods. The sun is barely shining "
          f"through the little creek of \nthe window, curtains are tattered and faded, their edges fraying as if they’ve"
          f" been hanging there for decades, and the \ncabin feels both empty and alive, with shadows flickering across "
          f"the wooden walls. To the left, the kitchen is eerily \npristine, its counter tops gleaming despite the age "
