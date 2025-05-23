@@ -8,6 +8,7 @@ def print_LR_nav():
    print(magenta("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\tWhere would you like to look now?"
                 "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\t\n\t\t\t\t\t\t\t\t", 'bold'))
    print(Colors.BOLD + " 1. BookShelf \n 2. Under the sheets of the couch \n 3. Under the Rug \n 4. In the cushions \n")
+   #The different areas you can going into
    user_choice = input(magenta("Enter your choice... ", 'bold'))
 
    return user_choice
@@ -20,6 +21,7 @@ def LivingRoom_room(character):
    print("The living room feels heavier as you step inside, the air colder than the rest of the cabin. Dust coats "
              "everything, dulling the once-vibrant colors \nof the furniture. Sheets drape over misshapen forms—furniture, "
              "perhaps, but their outlines suggest something \nmore. A fireplace sits against the far wall, it embers glowing faintly despite no visible.")
+   #introduction
 
 
    # if user_first_choice == 2:
@@ -41,10 +43,8 @@ def LivingRoom_room(character):
                print(Colors.ITALIC + (red("\nYou’ve acquired: A Journal")))
                character.add_to_inventory("A Leather-Bound Journal")
 
-
            elif user_choice == 2:
                print("\nAre you SLOW?? pun intended, anyways you cant take that back and you might regret that later...")
-
 
            input(
                red("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress to 'Enter' to continue...\t\t\t\n"
@@ -121,6 +121,3 @@ def LivingRoom_room(character):
                    "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
            all_rooms += 1
 
-
-("Well done {self.name}, Your finished with exploring this odd cabbin\nand you notice something lies out there in the woods..."
-"it's calling you're\n name. The sirens await will you dare to engage with them\n What secrets, challenges, or ")

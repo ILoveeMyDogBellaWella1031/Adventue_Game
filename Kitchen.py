@@ -14,6 +14,7 @@ def print_kitchen_nav():
    user_choice = input(yellow("Enter your choice... ", 'bold'))
    return user_choice
 
+#Kitchen Navigation directory
 
 def Kitchen_room(character):
    print("As you stand in the center of the cabin, the faint glow of sunlight slipping through the curtains, you take "
@@ -22,7 +23,7 @@ def Kitchen_room(character):
    input(red("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress to 'Enter' to continue...\t\t\t\n"
              "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
 
-
+#This defines the beginning of the room
 
 
    print(yellow("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\t\t\tKitchen\n~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -34,21 +35,31 @@ def Kitchen_room(character):
          "of bread sits half-sliced next to a dull knife, \nas if someone abandoned their task mid-action. A faint smell "
          "of salt lingers in the air, mixed with something metallic, \nbut you can’t pinpoint its source. The eerie quiet "
          "presses against your ears, making you wonder if you really are alone")
+
+   # if user_first_choice == 1:
    # Starts Kitchen
    all_rooms = 0
    while all_rooms < 4:
        kitchen_nav_choice = print_kitchen_nav()
-       if kitchen_nav_choice.lower() == '1':
+       #if {kitchen} nav choice is being used in an if statement it will print
+       if kitchen_nav_choice == '1':
+        #Out of all the options given above, depending on what you choose it'll print out something completely different!
            print("\nYou look on the counter top. It looks untouched, except for the half sliced loaf of bread. Next to "
                  "it is a dull knife. \nUpon closer inspection, the knife has strange symbols and a faint line that "
                  "looks to be in the shape of a key etched into it but what could it be used for? ")
            print(Colors.ITALIC + (red("\nYou’ve collected:A Dull Knife out of curiosity")))
            character.add_to_inventory("A Dull Knife")
+           #This function adds whatever item into the players inventory
+
+           #
 
 
            input(red("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress to 'Enter' to continue...\t\t\t\n"
                  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
+           #This function was made so that everything wont be printed at the same time, instead you have to actually sit
+           #there and read it
            all_rooms += 1
+           #As soon as you complete this room it'll add to the while loop, when all the rooms are complete it'll send you back!
 
 
 
@@ -57,6 +68,7 @@ def Kitchen_room(character):
            print("\n\nThe sink is filed with murky water, the surface rippling even though nothing seems to disturb it. Would you like to reach in? \n 1. Yes \n 2. No\n")
            user_choice = int(input(yellow("Enter a number for your choice... ", 'bold')))
            if user_choice == 1:
+            #in this elif statement there are two more statements for each of the options
                print(Colors.ITALIC + (red("\nYou’ve collected: A Gold Coin")))
                character.add_to_inventory ("A Gold Coin")
            elif user_choice == 2:

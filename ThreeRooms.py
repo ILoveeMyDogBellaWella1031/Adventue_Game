@@ -13,6 +13,8 @@ def print_ThreeRooms_nav():
    user_r_choice = input(yellow("Enter your choice... ", 'bold'))
    return user_r_choice
 
+
+
 def ThreeRooms_room(character, self=None):
    print((blue("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\t\t\tThree Rooms\n~~~~~~~~~~~~~~~~~~~~~~~~~~"
               "~~~~~~~~~~~~~~~~~~~~~~~~~\t\n\t\t\t\t\t\t\t\t", 'bright')))
@@ -26,11 +28,13 @@ def ThreeRooms_room(character, self=None):
          "feels longer than it should, stretching endlessly as the doors draw you closer, their presence almost alive.\n"))
 
 
-
+   # if user_first_choice == 3:
 #Start Three Rooms
    all_rooms = 0
    while all_rooms < 3:
+
        ThreeRooms_nav_choice = print_ThreeRooms_nav()
+       #Room 1
        if ThreeRooms_nav_choice == '1':
            print("\nYou walk over to the first door. The door is dark brown with the carvings of a beast fighting off the "
                "spears that thrust toward its chest. \nThe beast, a massive wolf-like creature with snarling jaws and eyes"
@@ -42,6 +46,7 @@ def ThreeRooms_room(character, self=None):
 
            user_choice = int(input(yellow("Enter a number for your choice... ", 'bold')))
            if user_choice == 1:
+               #If they choose to go in or not and whatll happen
                print(
                    red("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\t\tROOM 1: The Beast\n~~~~~~~~~~~~~~~~~~~~~~~~~~"
                        "~~~~~~~~~~~~~~~~~~~~~~~~~\t\n\t\t\t\t\t\t\t\t", 'bright'))
@@ -69,6 +74,7 @@ def ThreeRooms_room(character, self=None):
                      " the floor. They form a riddle, almost ritualistic in nature:"))
                print(red("To silence rage, speak the truth it fears. What calms the storm when war draws near? You must choose:", 'italic'))
                print("\n 1. Speak a calming word \n 2. Offer the broken spear \n 3. Strike the beast's shadow")
+               #If the user decides to choose "1" "2" "3" it'll give different outcomes
                user_decision = int(input(yellow("\nEnter a number for your choice... ", 'bold')))
                if user_decision == 1:
                    print("The growl fades. A door on the far wall creaks open, revealing a hidden path. The silence "
@@ -93,7 +99,7 @@ def ThreeRooms_room(character, self=None):
                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
                elif user_decision == 2:
                    print("The spear vanishes. The beast appears, wounded but no longer hostile, and lets you pass.The "
-                         "beast locks eyes with you. For a moment, time holds still. Then it turns, fading into the "
+                         "beast locks eyes with you. For a moment, time holds still. \nThen it turns, fading into the "
                          "shadows. A new hallway lies behind where it stood, lit by a soft red glow. You continue \non, "
                          "quietly changed. You feel lighter. The door to the hallway clicks open behind you, now bearing "
                          "a glowing mark of completion.")
@@ -113,7 +119,6 @@ def ThreeRooms_room(character, self=None):
                        blue(
                            "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress 'Enter' to continue...\t\t\t\n"
                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
-
 
            all_rooms += 1
 
@@ -147,37 +152,53 @@ def ThreeRooms_room(character, self=None):
                          "right of you theres a lone stone and a... riddle?? Again?? it reads:\n")
 
                    print(blue("Triangle of the Tide, complete it to see. You must choose:", 'italic'))
+                   #puzzle system, you have to type the word properly
                    while True:
                        solution = input("Place the shells in a shape (circle, triangle, square): ").lower()
-                       if solution == 'triangle':
+                       if solution.lower() == 'triangle':
+                       #.Lower is used so that as long as its a variant of "Triangle" it'll work
                            print("\nThe shells glow faintly. A drawer opens, revealing a seashell amulet.\n")
-                           character.add_to_inventory("amulet")
+                           print(Colors.ITALIC + (
+                               red("\nYou’ve collected: Amulet. ")))
+                           character.add_to_inventory("Amulet")
                            break
-                              #figure out how to return back
                        else:
+                        #If you write anything else itll print the bellow
                            print("\nThe shells stay dim. Maybe you should try again. \n")
                elif user_decision == 2:
-                   print("You slot in the shell marked Escape. When you step inside, it’s pitch black. Then slowly, "
-                         "moonlight filters through stained-glass panels of crashing waves. You are on a ship, broken "
+                   print("The carvings shimmer again, whispering promises of escape. But something in you hesitates. "
+                         "This door hungers. \nYou take a step back, the whispers fading… for now.")
+           elif user_choice == 2:
+               print("You slot in the shell marked Escape. When you step inside, it’s pitch black. Then slowly, "
+                         "moonlight filters through stained-glass panels of crashing \nwaves. You are on a ship, broken "
                          "in half, suspended in time. Every creak echoes forever. On the captain’s chair lies a silver "
-                         "compass, pointing to nothing.You may take it… or leave it. Either way, the door behind you "
+                         "compass, pointing to nothing. \nYou may take it… or leave it. Either way, the door behind you "
                          "now opens freely.Will you... take it? \n1. Yes \n2. No")
-                   int(input("Tell...us:"))
-                   if user_choice == 1:
-                       character.add_to_inventory("Silver fang-shaped Pendent")
-                   else:
+               user_decision = int(input("Tell...us: "))
+               if user_decision == 1:
+                       print("\nYou take it for some reason.")
+                       print(
+                           Colors.ITALIC + (red("\nYou’ve collected: Silver Compass, It leads nowhere. ")))
+                       character.add_to_inventory("Silver Compass")
+
+                       input(green(
+                           "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress 'Enter' to continue...\t\t\t\n"
+                           "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
+
+               elif user_decision == 2:
                        print("You leave it behind but you cant help but feel like this is the last time you see it...")
-               elif user_decision == 3:
-                       print("You place the Truth shell. The lock shatters. The illusion lifts, revealing a flooded "
+           elif user_choice == 3:
+               print("You place the Truth shell. The lock shatters. The illusion lifts, revealing a flooded "
                              "chamber of mirrors and serpent "
-                             "eyes.  The mirrors show you things you’ve hidden from yourself. Mirrors cover the walls. "
-                             "But your reflection doesn’t follow your movements. Behind one mirror, a whisper: “You "
+                             "eyes. The mirrors \nshow you things you’ve hidden from yourself. Mirrors cover the walls. "
+                             "But your reflection doesn’t follow your movements. Behind one \nmirror, a whisper: “You "
                              "wanted to know. So remember.” "
                              "The serpents blink once, You reach out—and pull away a mirror. Behind it is a message, "
-                             "written in salt: “The serpent sleeps… but not forever.” "
+                             "written in salt: “The serpent sleeps… \nbut not forever.” "
                              "then vanish. A light flickers overhead, revealing a path forward. You carry the truth with"
-                             " The water drains, revealing a spiral staircase back to the hall. You leave, uneasy but wiser."
+                             " The water drains, \nrevealing a spiral staircase back to the hall. You leave, uneasy but wiser."
                              "you, even if it stings.")
+
 
                input(
                    yellow("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress to 'Enter' to continue...\t\t\t\n"
@@ -197,16 +218,16 @@ def ThreeRooms_room(character, self=None):
                      "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
 
            print("You touch the door and it swings open without resistance—too easily. The room is gold-lit, walls lined "
-                 "with shelves of treasures, \ntrinkets, and offerings. A pedestal sits in the center, holding a glowing "
-                 "scale. \nAbove it, carved in stone: “What you give, you may receive. What you take, you may owe.” \nyou "
-                 "may owe. You look at what you have in your pocket” Three objects are available to use: \n\n 1. "
-                 "The Gold Coin from your pocket \n 2. A ruby from thw shelf \n 3. The note that says your name")
+                 "with shelves of treasures, trinkets, and offerings. A pedestal sits in the center, \nholding a glowing "
+                 "scale. \nAbove it, carved in stone: “What you give, you may receive. What you take, you may owe.” "
+                 "You look at what you have in your pocket” \nThree objects are available to use: \n\n 1. "
+                 "The Gold Coin from your pocket \n 2. A ruby from the shelf \n 3. The note that says your name")
 
            user_decision = int(input("\nPick Wisely: "))
            if user_decision == 1:
                print("\nYou place your own coin on the scale. It wobbles, then balances perfectly. A quiet chime echoes "
-                     "as the drawer opens. The key feels warm in your hand.You leave the room with a strange peace in "
-                     "your chest. Balance, it seems, is rewarded. The door behind you opens. One mark glows upon it—room "
+                     "as the drawer opens. The key \nfeels warm in your hand.You leave the room with a strange peace in "
+                     "your chest. Balance, it seems, is rewarded. The door \nbehind you opens. One mark glows upon it—room "
                      "complete. You return to the hall.")
 
                input(
@@ -228,7 +249,7 @@ def ThreeRooms_room(character, self=None):
                        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
 
            elif user_decision == 3:
-               print("You take the piece of paper out, looking at it as if its about to write your future. They asked "
+               print("\nYou take the piece of paper out, looking at it as if its about to write your future. They asked "
                      "for an offering and this is what you have. \nYou place it on the scale. Nothing happens. Then… "
                      "everything happens. The air grows cold. Light flickers. You feel something tug at \nyour mind, "
                      "your memories. You feel… smaller. But the way forward is open. You exit slowly, unsure what you "
@@ -242,7 +263,7 @@ def ThreeRooms_room(character, self=None):
            all_rooms += 1
 
        else:
-           print("Nuh uh! Dont punk out just yet")
+           print("\nUhhh i dont think that's a room king")
 
 
 #Tried new system, didnt work

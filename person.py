@@ -12,6 +12,7 @@ class Character:
            # f"\t\t\tHealth: {self.health}'\t\t\tScore: {self.score}")
 
 
+#Not used yet
    def dec_health(self, health):
        self.health -= health
        if self.health <= 0:
