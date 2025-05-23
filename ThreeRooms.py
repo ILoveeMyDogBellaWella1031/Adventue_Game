@@ -69,8 +69,8 @@ def ThreeRooms_room(character, self=None):
                      " the floor. They form a riddle, almost ritualistic in nature:"))
                print(red("To silence rage, speak the truth it fears. What calms the storm when war draws near? You must choose:", 'italic'))
                print("\n 1. Speak a calming word \n 2. Offer the broken spear \n 3. Strike the beast's shadow")
-               user_choice = int(input(yellow("\nEnter a number for your choice... ", 'bold')))
-               if user_choice == 1:
+               user_decision = int(input(yellow("\nEnter a number for your choice... ", 'bold')))
+               if user_decision == 1:
                    print("The growl fades. A door on the far wall creaks open, revealing a hidden path. The silence "
                          "that follows is almost deafening. You feel the tension in your shoulders \nrelease. You close "
                          "your eyes for a moment, steadying your breath. The growl grows louder, more guttural… but you "
@@ -91,23 +91,35 @@ def ThreeRooms_room(character, self=None):
                        blue(
                            "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress 'Enter' to continue...\t\t\t\n"
                            "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
-               elif user_choice == 2:
+               elif user_decision == 2:
                    print("The spear vanishes. The beast appears, wounded but no longer hostile, and lets you pass.The "
                          "beast locks eyes with you. For a moment, time holds still. Then it turns, fading into the "
-                         "shadows. A new hallway lies behind where it stood, lit by a soft red glow. You continue on, "
+                         "shadows. A new hallway lies behind where it stood, lit by a soft red glow. You continue \non, "
                          "quietly changed. You feel lighter. The door to the hallway clicks open behind you, now bearing "
                          "a glowing mark of completion.")
-               elif user_choice == 3:
-                   print("You swing. Your weapon passes through the air… and the room roars.The room erupts in flames. "
-                         "You stumble out of the room, coughing, burned but alive. A force shoves you into the hall, "
-                         "the door slamming shut behind you. You've deeply angered the force, a red scar now burns on "
+
+                   input(
+                       blue(
+                           "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress 'Enter' to continue...\t\t\t\n"
+                           "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
+
+               elif user_decision == 3:
+                   print("\nYou swing. Your weapon passes through the air… and the room roars.The room erupts in flames. "
+                         "You stumble out of the room, coughing, burned but alive. \nA force shoves you into the hall, "
+                         "the door slamming shut behind you. You've deeply angered the force, a red scar now \nburns on "
                          "the door. It will not open again.")
 
-       all_rooms += 1
+                   input(
+                       blue(
+                           "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress 'Enter' to continue...\t\t\t\n"
+                           "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
 
-       if ThreeRooms_nav_choice == '2':
+
+           all_rooms += 1
+
+       elif ThreeRooms_nav_choice == '2':
            print(
-               yellow("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\t\tROOM 2: The Ocean\n~~~~~~~~~~~~~~~~~~~~~~~~~~"
+               blue("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\t\tROOM 2: The Ocean\n~~~~~~~~~~~~~~~~~~~~~~~~~~"
                    "~~~~~~~~~~~~~~~~~~~~~~~~~\t\n\t\t\t\t\t\t\t\t", 'bright'))
 
            input(green("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress 'Enter' to continue...\t\t\t\n"
@@ -125,24 +137,26 @@ def ThreeRooms_room(character, self=None):
            user_choice = int(input(yellow("\nEnter a number for your choice... ", 'bold')))
            if user_choice == 1:
                print("The door unlocks with a hiss, but the room shifts to lure you deeper into illusion.")
-               int(input("Would you like to follow? \n1. Yes \n2. No \nTell me: "))
-               if user_choice == 1:
-                   print("You place the shell etched with Desire into the hollow. The beach glows too brightly. The waves move but there’s no wind. You realize your not"
+
+               user_decision = int(input("Would you like to follow? \n1. Yes \n2. No \nTell me: "))
+               if user_decision == 1:
+                   print("You place the shell etched with Desire into the hollow. The beach glows too brightly. The "
+                         "waves move but there’s no wind. You realize your not"
                          " alone—something watches beneath the surface. \nYou look down to see an array of seashells "
                          "varying in color and shape. You notice that theres different shapes on each of them. \nTo the "
                          "right of you theres a lone stone and a... riddle?? Again?? it reads:\n")
 
                    print(blue("Triangle of the Tide, complete it to see. You must choose:", 'italic'))
                    while True:
-                    solution = input("Place the shells in a shape (circle, triangle, square): ").lower()
-                    if solution == 'triangle':
+                       solution = input("Place the shells in a shape (circle, triangle, square): ").lower()
+                       if solution == 'triangle':
                            print("\nThe shells glow faintly. A drawer opens, revealing a seashell amulet.\n")
                            character.add_to_inventory("amulet")
-                           return
-                           #figure out how to return back
-                    else:
+                           break
+                              #figure out how to return back
+                       else:
                            print("\nThe shells stay dim. Maybe you should try again. \n")
-               elif user_choice == 2:
+               elif user_decision == 2:
                    print("You slot in the shell marked Escape. When you step inside, it’s pitch black. Then slowly, "
                          "moonlight filters through stained-glass panels of crashing waves. You are on a ship, broken "
                          "in half, suspended in time. Every creak echoes forever. On the captain’s chair lies a silver "
@@ -153,7 +167,7 @@ def ThreeRooms_room(character, self=None):
                        character.add_to_inventory("Silver fang-shaped Pendent")
                    else:
                        print("You leave it behind but you cant help but feel like this is the last time you see it...")
-               elif user_choice == 3:
+               elif user_decision == 3:
                        print("You place the Truth shell. The lock shatters. The illusion lifts, revealing a flooded "
                              "chamber of mirrors and serpent "
                              "eyes.  The mirrors show you things you’ve hidden from yourself. Mirrors cover the walls. "
@@ -170,12 +184,12 @@ def ThreeRooms_room(character, self=None):
                        "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
 
 
-       all_rooms += 1
+           all_rooms += 1
 
-       if ThreeRooms_nav_choice == '3':
+       elif ThreeRooms_nav_choice == '3':
            print(
                green(
-                   "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\t\tROOM 3: Greed? or Generosity\n~~~~~~~~~~~~~~~~~~~~~~~~~~"
+                   "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tROOM 3: Greed? or Generosity\n~~~~~~~~~~~~~~~~~~~~~~~~~~"
                    "~~~~~~~~~~~~~~~~~~~~~~~~~\t\n\t\t\t\t\t\t\t\t", 'bright'))
 
            input(
@@ -183,32 +197,47 @@ def ThreeRooms_room(character, self=None):
                      "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
 
            print("You touch the door and it swings open without resistance—too easily. The room is gold-lit, walls lined "
-                 "with shelves of treasures, trinkets, and offerings. A pedestal sits in the center, holding a glowing "
-                 "scale. Above it, carved in stone: “What you give, you may receive. What you take, you may owe.” \nyou "
-                 "may owe. You look at what you have in your pocket” Three objects are available to use: \n 1. "
+                 "with shelves of treasures, \ntrinkets, and offerings. A pedestal sits in the center, holding a glowing "
+                 "scale. \nAbove it, carved in stone: “What you give, you may receive. What you take, you may owe.” \nyou "
+                 "may owe. You look at what you have in your pocket” Three objects are available to use: \n\n 1. "
                  "The Gold Coin from your pocket \n 2. A ruby from thw shelf \n 3. The note that says your name")
 
-           int(input("Pick Wisely: "))
-           if user_choice == 1:
-               print("You place your own coin on the scale. It wobbles, then balances perfectly. A quiet chime echoes "
+           user_decision = int(input("\nPick Wisely: "))
+           if user_decision == 1:
+               print("\nYou place your own coin on the scale. It wobbles, then balances perfectly. A quiet chime echoes "
                      "as the drawer opens. The key feels warm in your hand.You leave the room with a strange peace in "
                      "your chest. Balance, it seems, is rewarded. The door behind you opens. One mark glows upon it—room "
                      "complete. You return to the hall.")
-               self.inventory.remove("A Gold Coin")
-           elif user_choice == 2:
-               print("You ignore the coin in your pocket and instead reach for the ruby sitting on the shelf. You gently place it onto the scale. It sinks violently then you hear a deep deafening voice.")
+
+               input(
+                   yellow(
+                       "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress 'Enter' to continue...\t\t\t\n"
+                       "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
+
+           elif user_decision == 2:
+               print("\nYou ignore the coin in your pocket and instead reach for the ruby sitting on the shelf. You gently place it onto the scale. It sinks \nviolently then you hear a deep deafening voice.")
                print(red("\nYOUR GREED SICKENS ME\n"))
-               print("\nSirens wail. "
+               print("Sirens wail. "
                      "The room shakes. Gold turns to ash. Walls begin to melt. You run—forced to leap through the now-open "
-                     "door as the room implodes behind you. The door slams shut. The glowing mark flickers, half-lit. "
+                     "door as the room \nimplodes behind you. The door slams shut. The glowing mark flickers, half-lit. "
                      "You survived, but not unchanged.\n")
-           elif user_choice == 3:
+
+               input(
+                   yellow(
+                       "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress 'Enter' to continue...\t\t\t\n"
+                       "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
+
+           elif user_decision == 3:
                print("You take the piece of paper out, looking at it as if its about to write your future. They asked "
-                     "for an offering and this is what you have. You place it on the scale. Nothing happens. Then… "
-                     "everything happens. The air grows cold. Light flickers. You feel something tug at your mind, "
+                     "for an offering and this is what you have. \nYou place it on the scale. Nothing happens. Then… "
+                     "everything happens. The air grows cold. Light flickers. You feel something tug at \nyour mind, "
                      "your memories. You feel… smaller. But the way forward is open. You exit slowly, unsure what you "
                      "left behind.")
-               self.inventory.remove("A Note")
+
+               input(
+                   yellow(
+                       "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress 'Enter' to continue...\t\t\t\n"
+                       "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
 
            all_rooms += 1
 
