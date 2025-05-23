@@ -1,4 +1,4 @@
-# Jariyah Guy + Samiyah Sookdar
+#Samiyah Sookdar
 # November 18th, 2024
 # Project: Adventure Game (Dying Path)
 
@@ -6,15 +6,19 @@
 # User/Main character info.
 # Step 2: Would start in a cabin that requires the user to find ways to escape by different rooms
 # Step 3: Some of the keys we find aren't the right keys + can't move on in different rooms until we find a matching key to a door (Ex. requires specific color of key to unlock another door)
-# Step 4 After, 1 path to a lagoon including sirens/mystical creatures who we can buy/give offerings to work with us or could be a threat) *Jariyah's focus*)
+
 import person as ch
-import rooms as r
+# import rooms as r
 import Kitchen as k
 import LivingRoom as l
+import ThreeRooms as r3
 from simple_colors import *
+
+
 class Colors:
    BOLD = '\033[1m'
    ITALIC = '\033[3m'
+
 
 
 def print_nav():
@@ -22,6 +26,7 @@ def print_nav():
                   " go first hehehe~?\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\t\n\n 1. The "
                   "Kitchen\n 2. The Living Room\n 3. The 'Three' Rooms *UnderConstruction*\n 4. Exit\n Whats your choice young soul? ", 'bold')))
    return user_first_choice
+
 
 
 def start_game ():
@@ -45,7 +50,7 @@ if __name__ == '__main__':
 
    mc = ch.Character(username)
    # Start letting user choose room
-   all_rooms_solved = 0
+   all_rooms_solved: int = 0
    while all_rooms_solved < 4:
        # Print room menu
        user_room_choice = print_nav()
@@ -54,10 +59,26 @@ if __name__ == '__main__':
            all_rooms_solved += 1
        elif user_room_choice == 2:
            l.LivingRoom_room(mc)
+           all_rooms_solved += 1
+       elif user_room_choice == 3:
+           r3.ThreeRooms_room(mc)
+           all_rooms_solved += 1
        elif user_room_choice == 4:
-           print(f"Well done {mc.name}, You've finished with exploring this odd cabin\nand you notice something lies out there in the woods..."
-               "it's calling you're\nname. The sirens await will you dare to engage with them? come back nex time for yhe full game. Thank you for playing!")
-           quit()
+           if all_rooms_solved == 4:
+            print(f"Well done {mc.name}, You've finished with exploring this odd cabin\nand you notice something lies "
+                  f"out there in the woods..."
+               "it's calling you're\nname. The sirens await will you dare to engage with them? come back nex time for "
+                  "the full game. Thank you for playing!")
+            quit()
+           elif all_rooms_solved < 4 or all_rooms_solved > 1:
+               print("\nYou started it you MUST finish... What did you think this was? You cant leave until you finish... ")
+
+               input(
+                   red("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress to 'Enter' to continue...\t\t\t\n"
+                       "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
+
+               user_room_choice = print_nav()
+
 
 
 
@@ -182,15 +203,17 @@ def LivingRoom_room(character):
                  "cracked and weathered with age. A tarnished clasp \nholds it shut, but the lock appears broken. "
                  "Inside, the yellowed pages are filled with cryptic handwriting and sketches of symbols you don’t "
                  "recognize—some \nresembling the carvings on the cabin’s doors. Smudges and stains suggest it’s been"
-                 " handled with urgency or fear. Several pages are torn out, leaving jagged \nedges and an unsettling "
+                 " handled with urgency or fear. Several pages are torn out, some how spelling your name")
+           print(red(f"{ch.Character(username)}"))
+           print(" leaving jagged \nedges and an unsettling "
                  "sense of incompleteness. The faint scent of old ink clings to it, as if the thoughts recorded within are still alive."
-                 "\nWould you like to take it? \n 1. Yes \n 2. No\n")
+                 "\nWould you like to take them? \n 1. Yes \n 2. No\n")
 
 
            user_choice = int(input(yellow("Enter a number for your choice... ", 'bold')))
            if user_choice == 1:
-               print(Colors.ITALIC + (red("\nYou’ve acquired: A Journal")))
-               character.add_to_inventory("A Leather-Bound Journal")
+               print(Colors.ITALIC + (red("\nYou’ve acquired: A Journal + Your name?")))
+               character.add_to_inventory("A Leather-Bound Journal" + "Note")
 
 
            elif user_choice == 2:
@@ -271,3 +294,5 @@ def LivingRoom_room(character):
            input(red("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress to 'Enter' to continue...\t\t\t\n"
                    "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
            all_rooms += 1
+
+#Three Rooms

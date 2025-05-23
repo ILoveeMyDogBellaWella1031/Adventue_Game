@@ -16,7 +16,9 @@ def print_kitchen_nav():
 
 
 def Kitchen_room(character):
-   print("As you stand in the center of the cabin, the faint glow of sunlight slipping through the curtains, you take in your surroundings. \nThe kitchen lies to your left, the living room to your right, and ahead of you stand three doors, each beckoning in its own strange way.")
+   print("As you stand in the center of the cabin, the faint glow of sunlight slipping through the curtains, you take "
+         "in your surroundings. \nThe kitchen lies to your left, the living room to your right, and ahead of you stand "
+         "three doors, each beckoning in its own strange way.")
    input(red("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\tPress to 'Enter' to continue...\t\t\t\n"
              "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", 'bold'))
 
@@ -25,7 +27,8 @@ def Kitchen_room(character):
 
    print(yellow("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\t\t\t\t\tKitchen\n~~~~~~~~~~~~~~~~~~~~~~~~~~"
              "~~~~~~~~~~~~~~~~~~~~~~~~~\t\n\t\t\t\t\t\t\t\t", 'bold' ))
-   print(Colors.BOLD + "\nYou step into the kitchen, the faint creak of the floorboards beneath you breaking the oppressive stillness. "
+   print(Colors.BOLD + "\nYou step into the kitchen, the faint creak of the floorboards beneath you breaking the "
+                       "oppressive stillness. "
          "The counter tops \nare spotless, yet they seem unnervingly sterile, as though no one has ever used them. "
          "The fridge door hangs slightly ajar, \na soft dripping sound emanating from within. On the counter, a loaf "
          "of bread sits half-sliced next to a dull knife, \nas if someone abandoned their task mid-action. A faint smell "
@@ -37,7 +40,8 @@ def Kitchen_room(character):
        kitchen_nav_choice = print_kitchen_nav()
        if kitchen_nav_choice.lower() == '1':
            print("\nYou look on the counter top. It looks untouched, except for the half sliced loaf of bread. Next to "
-                 "it is a dull knife. \nUpon closer inspection, the knife has strange symbols and a faint line that looks to be in the shape of a key etched into it but what could it be used for? ")
+                 "it is a dull knife. \nUpon closer inspection, the knife has strange symbols and a faint line that "
+                 "looks to be in the shape of a key etched into it but what could it be used for? ")
            print(Colors.ITALIC + (red("\nYou’ve collected:A Dull Knife out of curiosity")))
            character.add_to_inventory("A Dull Knife")
 

@@ -9,6 +9,7 @@ def print_LR_nav():
                 "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\t\n\t\t\t\t\t\t\t\t", 'bold'))
    print(Colors.BOLD + " 1. BookShelf \n 2. Under the sheets of the couch \n 3. Under the Rug \n 4. In the cushions \n")
    user_choice = input(magenta("Enter your choice... ", 'bold'))
+
    return user_choice
 # Importance of character to apply things in inventory
 
